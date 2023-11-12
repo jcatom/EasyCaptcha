@@ -1,5 +1,7 @@
 package com.wf.captcha.base;
 
+import java.math.RoundingMode;
+
 /**
  * 字符串计算器辅助类
  * @link https://www.cnblogs.com/woider/p/5331391.html
@@ -88,7 +90,7 @@ class ArithHelper {
     public static double div(String v1, String v2) {
         java.math.BigDecimal b1 = new java.math.BigDecimal(v1);
         java.math.BigDecimal b2 = new java.math.BigDecimal(v2);
-        return b1.divide(b2, DEF_DIV_SCALE, java.math.BigDecimal.ROUND_HALF_UP).doubleValue();
+        return b1.divide(b2, DEF_DIV_SCALE, RoundingMode.HALF_UP).doubleValue();
     }
 
     /**
@@ -106,7 +108,7 @@ class ArithHelper {
         }
         java.math.BigDecimal b1 = new java.math.BigDecimal(Double.toString(v1));
         java.math.BigDecimal b2 = new java.math.BigDecimal(Double.toString(v2));
-        return b1.divide(b2, scale, java.math.BigDecimal.ROUND_HALF_UP).doubleValue();
+        return b1.divide(b2, scale, RoundingMode.HALF_UP).doubleValue();
     }
 
     /**
@@ -123,7 +125,7 @@ class ArithHelper {
         }
         java.math.BigDecimal b = new java.math.BigDecimal(Double.toString(v));
         java.math.BigDecimal one = new java.math.BigDecimal("1");
-        return b.divide(one, scale, java.math.BigDecimal.ROUND_HALF_UP).doubleValue();
+        return b.divide(one, scale, RoundingMode.HALF_UP).doubleValue();
     }
 
     public static double round(String v, int scale) {
@@ -132,6 +134,6 @@ class ArithHelper {
         }
         java.math.BigDecimal b = new java.math.BigDecimal(v);
         java.math.BigDecimal one = new java.math.BigDecimal("1");
-        return b.divide(one, scale, java.math.BigDecimal.ROUND_HALF_UP).doubleValue();
+        return b.divide(one, scale, RoundingMode.HALF_UP).doubleValue();
     }
 }
